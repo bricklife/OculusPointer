@@ -667,6 +667,10 @@ namespace UnityEngine.EventSystems
                     OVRGazePointer.instance.SetPosition(worldPos, normal);
                     // Make sure it's being shown
                     OVRGazePointer.instance.RequestShow();
+                    if (lineRenderer != null)
+                    {
+                        lineRenderer.SetPosition(1, raycast.worldPosition);
+                    }
                 }
             }
 
@@ -692,6 +696,10 @@ namespace UnityEngine.EventSystems
 
                 // Show the cursor while pointing at an interactable object
                 OVRGazePointer.instance.RequestShow();
+                if (lineRenderer != null)
+                {
+                    lineRenderer.SetPosition(1, raycast.worldPosition);
+                }
                 if (matchNormalOnPhysicsColliders)
                 {
                     OVRGazePointer.instance.SetPosition(position, raycast.worldNormal);
